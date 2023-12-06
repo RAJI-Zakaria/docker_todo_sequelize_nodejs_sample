@@ -1,0 +1,14 @@
+
+node_modules
+
+*.log
+
+.env
+config/local_settings.json
+
+/dist
+/out
+
+.gitignore
+.vscode/
+.idea/
