@@ -1,0 +1,23 @@
+# Dependency directories
+node_modules/
+
+# Environment variables file
+.env
+
+# Log files
+logs/
+*.log
+
+# Editor/IDE specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace 
+
+# Database
+# Add your database files or directory name if needed
+database.sqlite
+
+# OS-specific files
+.DS_Store
+Thumbs.db
