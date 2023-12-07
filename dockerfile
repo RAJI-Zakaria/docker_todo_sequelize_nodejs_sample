@@ -1,9 +1,8 @@
 # Use a base image
-FROM node:20
+FROM node
 
 # Set environment variables
-ENV NODE_ENV=production
-ENV PORT=3333  
+ENV PORT=3333
 # Updated port to 3333
 
 # Set the working directory in the container
@@ -15,7 +14,7 @@ COPY ecosystem.config.js ./
 # Copy PM2 ecosystem file
 
 # Install app dependencies including PM2 using npm
-RUN npm install
+RUN npm install -g
 
 # Copy the entire application
 COPY . .
