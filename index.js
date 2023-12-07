@@ -1,6 +1,7 @@
 const express = require('express');
-const { Sequelize, DataTypes } = require('sequelize');
 const todoRoutes = require('./routes/todoRoutes');
+require('dotenv').config();
+
 const db = require('./db'); 
 
 const app = express();
@@ -23,8 +24,9 @@ app.get('*', (req, res) => {
 );
 
 // Start server
-const PORT = 3333; // Updated port to 3333
-const IP = "localhost" //"192.168.1.101";
+const PORT = process.env.PORT || 3333;
+const IP = process.env.IP || 'localhost';//"192.168.1.101";
+ 
 
 db.sequelize.sync().then(() => {
   app.listen(PORT, () => {
