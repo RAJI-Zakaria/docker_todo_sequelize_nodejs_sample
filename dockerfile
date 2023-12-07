@@ -1,5 +1,5 @@
 # Use a smaller Node.js base image
-FROM node:14-alpine
+FROM node:20-slim
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
@@ -14,14 +14,8 @@ RUN npm install
 COPY . .
 
 # Expose the port that your API runs on
-EXPOSE 3333
+EXPOSE 3232
 
-# Create a non-root user
-RUN addgroup -g 1001 nodejs && \
-    adduser -u 1001 -G nodejs -s /bin/sh -D nodejs
-
-# Switch to non-root user
-USER nodejs
 
 # Specify the command to run your API using npm start
 CMD ["npm", "run", "start"]

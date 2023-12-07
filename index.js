@@ -24,7 +24,7 @@ app.get('*', (req, res) => {
 );
 
 // Start server
-const PORT = process.env.PORT || 3333;
+const PORT = process.env.PORT || 3232;
 const IP = process.env.IP || 'localhost';//"192.168.1.101";
  
 

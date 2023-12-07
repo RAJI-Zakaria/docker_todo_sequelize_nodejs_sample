@@ -5,8 +5,8 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "4040:3333"  # Updated port mapping to 3333
+      - "4242:3232"  # Updated port mapping to 3232
     environment:
-      - PORT=3333  # Set the port for the API
+      - PORT=3232  # Set the port for the API
     restart: unless-stopped
     command: ["npm", "run", "start"] #["./node_modules/.bin/pm2-runtime", "start", "ecosystem.config.js"]  # Updated command to use PM2
