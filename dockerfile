@@ -1,17 +1,11 @@
-# Use a base image
-FROM node
-
-# Set environment variables
-ENV PORT=3333
-# Updated port to 3333
+# Use a smaller Node.js base image
+FROM node:14-alpine
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
 
 # Copy only necessary files for dependency installation
 COPY package*.json ./
-#COPY ecosystem.config.js ./  
-# Copy PM2 ecosystem file
 
 # Install app dependencies including PM2 using npm
 RUN npm install
@@ -20,8 +14,14 @@ RUN npm install
 COPY . .
 
 # Expose the port that your API runs on
-EXPOSE $PORT
+EXPOSE 3333
 
-# Specify the command to run your API using PM2 from the local node_modules
-#CMD ["./node_modules/.bin/pm2-runtime", "start", "ecosystem.config.js"]
+# Create a non-root user
+RUN addgroup -g 1001 nodejs && \
+    adduser -u 1001 -G nodejs -s /bin/sh -D nodejs
+
+# Switch to non-root user
+USER nodejs
+
+# Specify the command to run your API using npm start
 CMD ["npm", "run", "start"]
