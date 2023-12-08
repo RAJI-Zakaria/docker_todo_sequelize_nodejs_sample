@@ -3,9 +3,9 @@ services:
   backend-api:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: dockerfile
     ports:
-      - "4242:3232"  # Updated port mapping to 3232
+      - "3232:3232"  # Updated port mapping to 3232
     environment:
       - PORT=3232  # Set the port for the API
     restart: unless-stopped
